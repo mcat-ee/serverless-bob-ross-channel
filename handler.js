@@ -7,6 +7,7 @@ module.exports.landingPage = (event, context, callback) => {
   let dynamicHtml = ``;
   let string = JSON.stringify(episodeIdList);
 
+  let randomIndex = Math.floor(Math.random() * 403);
   const html = `
   <html>
     <style>
@@ -24,66 +25,9 @@ module.exports.landingPage = (event, context, callback) => {
       padding:0;
     }
   </style>
-  <div class="videoPlayer" id="player"></div>
-    <script>
-      // 2. This code loads the IFrame Player API code asynchronously.
-      var tag = document.createElement('script');
-
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-      function shuffle(a) {
-          for (let i = a.length - 1; i > 0; i--) {
-              const j = Math.floor(Math.random() * (i + 1));
-              [a[i], a[j]] = [a[j], a[i]];
-          }
-      }
-
-      var shuffledIdList = shuffle(episodeIdList);
-      // 3. This function creates an <iframe> (and YouTube player)
-      //    after the API code downloads.
-      var player;
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-          height: '390',
-          width: '640',
-          videoId: '${videoId}',
-          events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-          },
-          playlist: "VlucWfTUo1A,oh5p5f5_-7A,kasGRkfkiPM"
-        });
-      }
-
-      // player.cuePlaylist(
-      //   playlist: shuffledIdList
-      // );
-
-
-
-      // 4. The API will call this function when the video player is ready.
-      function onPlayerReady(event) {
-        event.target.playVideo();
-      }
-
-      // 5. The API calls this function when the player's state changes.
-      //    The function indicates that when playing a video (state=1),
-      //    the player should play for six seconds and then stop.
-      var done = false;
-      function onPlayerStateChange(event) {
-        // if (event.data == YT.PlayerState.ENDED) {
-        //   setTimeout(stopVideo, 6000);
-        //   done = true;
-        // }
-      }
-      function stopVideo() {
-        player.stopVideo();
-      }
-    </script>
-  </p>
-    </body>
+  <body>
+    <iframe class="videoPlayer" src="https://www.youtube.com/embed/videoseries?list=PLAEQD0ULngi67rwmhrkNjMZKvyCReqDV4&index=${randomIndex}" frameborder="0" allowfullscreen></iframe>
+  </body>
   </html>`;
 
   const response = {
