@@ -1,7 +1,7 @@
 {
-  "name": "bobross",
+  "name": "theUnofficialBobRossChannel",
   "version": "1.0.0",
-  "description": "Hookup an AWS API Gateway endpoint to a Lambda function to render HTML on a `GET` request",
+  "description": "Serve the official Bob Ross YouTube playlist (starting with a random episode)",
   "author": "",
   "license": "MIT"
 }
