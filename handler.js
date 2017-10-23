@@ -26,7 +26,7 @@ module.exports.landingPage = (event, context, callback) => {
     }
   </style>
   <body>
-    <iframe class="videoPlayer" src="https://www.youtube.com/embed/videoseries?list=PLAEQD0ULngi67rwmhrkNjMZKvyCReqDV4&index=${randomIndex}" frameborder="0" allowfullscreen></iframe>
+    <iframe class="videoPlayer" src="https://www.youtube.com/embed/videoseries?list=PLAEQD0ULngi67rwmhrkNjMZKvyCReqDV4&index=${randomIndex}&autoplay=1&iv_load_policy=3" frameborder="0" allowfullscreen></iframe>
   </body>
   </html>`;
 
